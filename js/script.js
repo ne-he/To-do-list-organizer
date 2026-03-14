@@ -30,10 +30,10 @@ const Storage = {
 const GreetingWidget = {
   // Returns greeting string based on hour (0-23)
   _getGreeting(hour) {
-    if (hour >= 5 && hour <= 11) return 'Good Morning';
-    if (hour >= 12 && hour <= 16) return 'Good Afternoon';
-    if (hour >= 17 && hour <= 20) return 'Good Evening';
-    return 'Good Night';
+    if (hour >= 5 && hour <= 11) return 'Good Morning Nehemiah';
+    if (hour >= 12 && hour <= 16) return 'Good Afternoon Nehemiah';
+    if (hour >= 17 && hour <= 20) return 'Good Evening Nehemiah';
+    return 'Good Night Nehemiah';
   },
 
   // Returns time string "HH:MM:SS" from a Date object
