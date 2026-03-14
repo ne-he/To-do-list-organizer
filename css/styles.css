@@ -1,0 +1,439 @@
+/* ============================================================
+   CSS Custom Properties
+   ============================================================ */
+:root {
+  /* Accent / brand */
+  --color-accent: #6C63FF;
+  --color-accent-dark: #574fd6;
+
+  /* Backgrounds */
+  --color-bg-gradient-from: #667eea;
+  --color-bg-gradient-to: #764ba2;
+  --color-card-bg: #ffffff;
+
+  /* Text */
+  --color-text-primary: #1a1a2e;
+  --color-text-secondary: #555577;
+  --color-text-on-accent: #ffffff;
+
+  /* Semantic */
+  --color-danger: #e53e3e;
+  --color-success: #38a169;
+
+  /* Typography */
+  --font-family: 'Segoe UI', system-ui, sans-serif;
+  --font-size-clock: 3.5rem;
+  --font-size-h1: 1.5rem;
+  --font-size-body: 1rem;
+  --font-size-small: 0.875rem;
+  --font-weight-bold: 700;
+  --font-weight-normal: 400;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+
+  /* Radius */
+  --radius-card: 1rem;
+  --radius-btn: 0.5rem;
+  --radius-input: 0.5rem;
+}
+
+/* ============================================================
+   Dark Mode Overrides
+   ============================================================ */
+body.dark {
+  --color-card-bg: #1e1e2e;
+  --color-text-primary: #e2e2f0;
+  --color-text-secondary: #a0a0c0;
+  --color-bg-gradient-from: #1a1a2e;
+  --color-bg-gradient-to: #16213e;
+}
+
+body.dark input {
+  background-color: #2a2a3e;
+  color: var(--color-text-primary);
+  border-color: #44445a;
+}
+
+body.dark input::placeholder {
+  color: var(--color-text-secondary);
+}
+
+/* ============================================================
+   Base Reset & Body
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  color: var(--color-text-primary);
+  background: linear-gradient(135deg, var(--color-bg-gradient-from), var(--color-bg-gradient-to));
+  min-height: 100vh;
+  padding: var(--space-lg);
+}
+
+/* ============================================================
+   Header
+   ============================================================ */
+header#header {
+  background: var(--color-card-bg);
+  border-radius: var(--radius-card);
+  padding: var(--space-xl);
+  margin-bottom: var(--space-lg);
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+#clock {
+  font-size: var(--font-size-clock);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent);
+  line-height: 1.1;
+}
+
+#date {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-small);
+  margin: var(--space-xs) 0 var(--space-sm);
+}
+
+#greeting-text {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+#header-controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  flex-wrap: wrap;
+}
+
+#name-input {
+  border: 1px solid #d0d0e0;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-input);
+  font-size: var(--font-size-body);
+  font-family: var(--font-family);
+  outline: none;
+  transition: border-color 0.2s;
+  width: 180px;
+}
+
+#name-input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+}
+
+/* ============================================================
+   Main Grid
+   ============================================================ */
+#main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+
+#left-col,
+#right-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* ============================================================
+   Cards
+   ============================================================ */
+.card {
+  background: var(--color-card-bg);
+  border-radius: var(--radius-card);
+  padding: var(--space-lg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-md);
+}
+
+/* ============================================================
+   Focus Timer
+   ============================================================ */
+#timer-display {
+  font-size: 3rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent);
+  text-align: center;
+  margin: var(--space-md) 0;
+  letter-spacing: 0.05em;
+}
+
+#timer-message {
+  text-align: center;
+  font-size: var(--font-size-small);
+  color: var(--color-success);
+  min-height: 1.25rem;
+  margin-bottom: var(--space-sm);
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+button {
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius-btn);
+  padding: var(--space-sm) var(--space-md);
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+/* Accent — Start, Add, Save */
+#btn-start,
+[type="submit"],
+#name-save {
+  background-color: var(--color-accent);
+  color: var(--color-text-on-accent);
+  font-weight: var(--font-weight-bold);
+}
+
+#btn-start:hover,
+[type="submit"]:hover,
+#name-save:hover {
+  background-color: var(--color-accent-dark);
+}
+
+/* Stop — neutral gray */
+#btn-stop {
+  background-color: #718096;
+  color: var(--color-text-on-accent);
+}
+
+#btn-stop:hover {
+  background-color: #5a6478;
+}
+
+/* Reset — outline */
+#btn-reset {
+  background-color: transparent;
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+}
+
+#btn-reset:hover {
+  background-color: rgba(108, 99, 255, 0.08);
+}
+
+/* Theme toggle */
+#theme-toggle {
+  background-color: transparent;
+  border: 1px solid #d0d0e0;
+  font-size: 1.1rem;
+  padding: var(--space-sm);
+  line-height: 1;
+}
+
+#theme-toggle:hover {
+  background-color: rgba(108, 99, 255, 0.08);
+  border-color: var(--color-accent);
+}
+
+/* Delete — danger */
+.btn-delete {
+  background-color: var(--color-danger);
+  color: var(--color-text-on-accent);
+  font-size: var(--font-size-small);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-btn);
+  flex-shrink: 0;
+}
+
+.btn-delete:hover {
+  background-color: #c53030;
+}
+
+/* Edit button — neutral outline style */
+.btn-edit {
+  background-color: transparent;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  font-size: var(--font-size-small);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-btn);
+  flex-shrink: 0;
+}
+
+.btn-edit:hover {
+  background-color: rgba(108, 99, 255, 0.08);
+}
+
+/* ============================================================
+   Inputs (general)
+   ============================================================ */
+input[type="text"],
+input:not([type="checkbox"]):not([type="submit"]):not([type="button"]) {
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  border: 1px solid #d0d0e0;
+  border-radius: var(--radius-input);
+  padding: var(--space-sm) var(--space-md);
+  width: 100%;
+  outline: none;
+  background-color: #fff;
+  color: var(--color-text-primary);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus,
+input:not([type="checkbox"]):not([type="submit"]):not([type="button"]):focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+}
+
+/* ============================================================
+   Error Messages
+   ============================================================ */
+.error-msg {
+  color: var(--color-danger);
+  font-size: var(--font-size-small);
+  min-height: 1.25rem;
+  margin-top: var(--space-xs);
+}
+
+/* ============================================================
+   Quick Links
+   ============================================================ */
+#link-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.link-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.link-item a {
+  display: inline-block;
+  background-color: var(--color-accent);
+  color: var(--color-text-on-accent);
+  text-decoration: none;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-btn);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-bold);
+  transition: background-color 0.2s;
+}
+
+.link-item a:hover {
+  background-color: var(--color-accent-dark);
+}
+
+#link-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* ============================================================
+   Task List
+   ============================================================ */
+#task-form {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+#task-form input {
+  flex: 1;
+}
+
+#task-form [type="submit"] {
+  flex-shrink: 0;
+}
+
+#task-list {
+  list-style: none;
+  padding: 0;
+  margin-top: var(--space-sm);
+}
+
+.task-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.task-item:last-child {
+  border-bottom: none;
+}
+
+.task-item span {
+  flex: 1;
+  color: var(--color-text-primary);
+  word-break: break-word;
+}
+
+.task-item.done span {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.task-item input[type="checkbox"] {
+  cursor: pointer;
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   Responsive — single column on mobile
+   ============================================================ */
+@media (max-width: 767px) {
+  #main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body {
+    padding: var(--space-md);
+  }
+
+  #name-input {
+    width: 140px;
+  }
+}

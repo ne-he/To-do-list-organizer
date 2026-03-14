@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo Life Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header id="header">
+    <div id="clock"></div>
+    <div id="date"></div>
+    <div id="greeting-text"></div>
+    <div id="header-controls">
+      <button id="theme-toggle">🌙</button>
+      <input id="name-input" placeholder="Your name..." />
+      <button id="name-save">Save</button>
+    </div>
+  </header>
+
+  <main id="main-grid">
+    <!-- Left column -->
+    <section id="left-col">
+      <div class="card" id="timer-card">
+        <h2>Focus Timer</h2>
+        <div id="timer-display">25:00</div>
+        <div id="timer-message"></div>
+        <div class="btn-group">
+          <button id="btn-start">Start</button>
+          <button id="btn-stop">Stop</button>
+          <button id="btn-reset">Reset</button>
+        </div>
+      </div>
+
+      <div class="card" id="links-card">
+        <h2>Quick Links</h2>
+        <ul id="link-list"></ul>
+        <form id="link-form">
+          <input id="link-label" placeholder="Link name" />
+          <input id="link-url" placeholder="URL" />
+          <button type="submit">Add Link</button>
+        </form>
+        <div id="link-error" class="error-msg"></div>
+      </div>
+    </section>
+
+    <!-- Right column -->
+    <section id="right-col">
+      <div class="card" id="tasks-card">
+        <h2>Tasks</h2>
+        <form id="task-form">
+          <input id="task-input" placeholder="Add a new task..." />
+          <button type="submit">Add</button>
+        </form>
+        <div id="task-error" class="error-msg"></div>
+        <ul id="task-list"></ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
