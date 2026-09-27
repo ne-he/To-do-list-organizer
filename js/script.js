@@ -1,4 +1,4 @@
-// Storage — thin localStorage wrapper
+// Storage: thin localStorage wrapper
 const Storage = {
   // Parse and return the stored value, or null if missing/corrupt
   get(key) {
@@ -15,7 +15,7 @@ const Storage = {
       localStorage.setItem(key, JSON.stringify(value));
     } catch (err) {
       if (err instanceof DOMException && err.name === 'QuotaExceededError') {
-        console.warn('Storage quota exceeded — changes will not persist.', err);
+        console.warn('Storage quota exceeded: changes will not persist.', err);
       }
     }
   },
@@ -26,7 +26,7 @@ const Storage = {
   },
 };
 
-// GreetingWidget — clock, date, greeting, and custom name
+// GreetingWidget: clock, date, greeting, and custom name
 const GreetingWidget = {
   // Returns greeting string based on hour (0-23)
   _getGreeting(hour) {
@@ -78,7 +78,7 @@ const GreetingWidget = {
   },
 };
 
-// FocusTimer — Pomodoro 25-minute countdown timer
+// FocusTimer: Pomodoro 25-minute countdown timer
 const FocusTimer = {
   _remaining: 1500,  // seconds (25 * 60)
   _intervalId: null, // reference to active setInterval, or null
@@ -140,7 +140,7 @@ const FocusTimer = {
   },
 };
 
-// TodoList — task CRUD with localStorage persistence and duplicate prevention
+// TodoList: task CRUD with localStorage persistence and duplicate prevention
 const TodoList = {
   _tasks: [], // in-memory task array
 
@@ -272,7 +272,7 @@ const TodoList = {
   },
 };
 
-// QuickLinks — favorite website links with localStorage persistence
+// QuickLinks: favorite website links with localStorage persistence
 const QuickLinks = {
   _links: [], // in-memory links array
 
@@ -359,7 +359,7 @@ const QuickLinks = {
   },
 };
 
-// Settings — theme toggle and custom name management
+// Settings: theme toggle and custom name management
 const Settings = {
   // Adds or removes "dark" class on <body> and updates toggle button icon
   _applyTheme(theme) {
@@ -415,7 +415,7 @@ const Settings = {
   },
 };
 
-// DashboardApp — orchestrator that initializes all modules
+// DashboardApp: orchestrator that initializes all modules
 const DashboardApp = {
   init() {
     GreetingWidget.init();

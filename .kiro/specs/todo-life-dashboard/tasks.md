@@ -12,7 +12,7 @@ Implement a single-page dashboard as three static files (`index.html`, `css/styl
   - Create `js/script.js` as an empty file (linked from `index.html`)
   - _Requirements: 8.1, 8.3_
 
-- [x] 2. Implement CSS — layout, variables, and responsive design
+- [x] 2. Implement CSS: layout, variables, and responsive design
   - [x] 2.1 Define CSS custom properties (color system, typography, spacing, radius) from the design's color system and typography sections
     - Include both light and dark mode variable sets
     - _Requirements: 8.4_
@@ -67,7 +67,7 @@ Implement a single-page dashboard as three static files (`index.html`, `css/styl
     - Test `stop()` retains current `remaining` (Req 2.4)
     - Test `_notifyComplete()` is called when `remaining` reaches 0 (Req 2.6)
 
-- [ ] 6. Checkpoint — Ensure all tests pass
+- [ ] 6. Checkpoint: Ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
 - [x] 7. Implement `TodoList` module
@@ -113,7 +113,7 @@ Implement a single-page dashboard as three static files (`index.html`, `css/styl
     - **Property 15: Link list round-trips through localStorage**
     - **Validates: Requirements 4.5, 4.6**
 
-- [ ] 9. Checkpoint — Ensure all tests pass
+- [ ] 9. Checkpoint: Ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
 - [x] 10. Implement `Settings` module
@@ -136,7 +136,7 @@ Implement a single-page dashboard as three static files (`index.html`, `css/styl
   - Ensure all module objects are defined before `DashboardApp` in `script.js`
   - _Requirements: 8.1, 8.5_
 
-- [ ] 12. Final checkpoint — Ensure all tests pass
+- [ ] 12. Final checkpoint: Ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
 ## Notes

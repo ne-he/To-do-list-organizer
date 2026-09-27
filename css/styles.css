@@ -213,7 +213,7 @@ button {
   transition: background-color 0.2s, opacity 0.2s;
 }
 
-/* Accent — Start, Add, Save */
+/* Accent: Start, Add, Save */
 #btn-start,
 [type="submit"],
 #name-save {
@@ -228,7 +228,7 @@ button {
   background-color: var(--color-accent-dark);
 }
 
-/* Stop — neutral gray */
+/* Stop: neutral gray */
 #btn-stop {
   background-color: #718096;
   color: var(--color-text-on-accent);
@@ -238,7 +238,7 @@ button {
   background-color: #5a6478;
 }
 
-/* Reset — outline */
+/* Reset: outline */
 #btn-reset {
   background-color: transparent;
   color: var(--color-accent);
@@ -263,7 +263,7 @@ button {
   border-color: var(--color-accent);
 }
 
-/* Delete — danger */
+/* Delete: danger */
 .btn-delete {
   background-color: var(--color-danger);
   color: var(--color-text-on-accent);
@@ -277,7 +277,7 @@ button {
   background-color: #c53030;
 }
 
-/* Edit button — neutral outline style */
+/* Edit button: neutral outline style */
 .btn-edit {
   background-color: transparent;
   color: var(--color-accent);
@@ -422,7 +422,7 @@ input:not([type="checkbox"]):not([type="submit"]):not([type="button"]):focus {
 }
 
 /* ============================================================
-   Responsive — single column on mobile
+   Responsive: single column on mobile
    ============================================================ */
 @media (max-width: 767px) {
   #main-grid {

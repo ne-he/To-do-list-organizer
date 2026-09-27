@@ -2,7 +2,7 @@
 
 ## Introduction
 
-A standalone daily dashboard web application built with HTML, CSS, and Vanilla JavaScript. The application helps users organize their day by combining a time-aware greeting, a Pomodoro focus timer, a persistent to-do list, and a quick links manager — all stored in the browser's Local Storage with no backend required.
+A standalone daily dashboard web application built with HTML, CSS, and Vanilla JavaScript. The application helps users organize their day by combining a time-aware greeting, a Pomodoro focus timer, a persistent to-do list, and a quick links manager, all stored in the browser's Local Storage with no backend required.
 
 ## Glossary
 
@@ -131,7 +131,7 @@ A standalone daily dashboard web application built with HTML, CSS, and Vanilla J
 
 1. THE Dashboard SHALL be implemented using only HTML, CSS, and Vanilla JavaScript with no external frameworks or backend dependencies.
 2. THE Dashboard SHALL use Local_Storage as the sole persistence mechanism.
-3. THE Dashboard SHALL render correctly on modern browsers (Chrome, Firefox, Safari, Edge — current stable versions).
+3. THE Dashboard SHALL render correctly on modern browsers (Chrome, Firefox, Safari, Edge, current stable versions).
 4. THE Dashboard SHALL present a responsive layout that adapts to viewport widths from 320px to 1920px.
 5. THE Dashboard SHALL organize JavaScript into modular functions, each annotated with a comment describing its purpose.
 6. WHEN the Dashboard is deployed to GitHub Pages, THE Dashboard SHALL be accessible via a public URL without additional configuration.

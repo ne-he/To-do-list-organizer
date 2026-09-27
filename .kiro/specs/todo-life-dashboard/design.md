@@ -4,7 +4,7 @@
 
 A single-page daily dashboard delivered as three static files (`index.html`, `css/styles.css`, `js/script.js`). No build step, no framework, no backend. All state lives in `localStorage`. The page is structured as a full-viewport layout with a header greeting zone and a two-column card grid below it.
 
-The JavaScript is organized into self-contained module objects (namespaces) — one per feature — each exposing an `init()` function called from a single `DashboardApp.init()` entry point. DOM manipulation is kept inside each module; no module reaches into another module's DOM nodes.
+The JavaScript is organized into self-contained module objects (namespaces), one per feature, each exposing an `init()` function called from a single `DashboardApp.init()` entry point. DOM manipulation is kept inside each module; no module reaches into another module's DOM nodes.
 
 ---
 
@@ -16,13 +16,13 @@ index.html
   └── <script> js/script.js
 
 js/script.js
-  ├── Storage        — thin localStorage wrapper
-  ├── GreetingWidget — clock, date, greeting text
-  ├── FocusTimer     — Pomodoro countdown
-  ├── TodoList       — task CRUD + duplicate check
-  ├── QuickLinks     — link CRUD
-  ├── Settings       — theme toggle + custom name
-  └── DashboardApp   — orchestrator, calls all init()
+  ├── Storage:         thin localStorage wrapper
+  ├── GreetingWidget: clock, date, greeting text
+  ├── FocusTimer:      Pomodoro countdown
+  ├── TodoList:        task CRUD + duplicate check
+  ├── QuickLinks:      link CRUD
+  ├── Settings:        theme toggle + custom name
+  └── DashboardApp:    orchestrator, calls all init()
 ```
 
 Data flow is strictly one-directional per module:
@@ -38,9 +38,9 @@ No shared mutable state between modules. Each module reads its own slice of `loc
 ```mermaid
 graph TD
   A[index.html viewport]
-  A --> B[Header — full width]
+  A --> B[Header: full width]
   B --> B1[Clock · Date · Greeting · Settings icon]
-  A --> C[Main grid — 2 columns]
+  A --> C[Main grid: 2 columns]
   C --> D[Left column]
   D --> D1[Focus Timer card]
   D --> D2[Quick Links card]
@@ -107,8 +107,8 @@ FocusTimer = {
 ```
 
 Internal state (module-scoped variables, not persisted):
-- `remaining` — integer seconds, starts at 1500
-- `intervalId` — reference to active `setInterval`, or `null`
+- `remaining`: integer seconds, starts at 1500
+- `intervalId`: reference to active `setInterval`, or `null`
 
 DOM targets: `#timer-display`, `#btn-start`, `#btn-stop`, `#btn-reset`, `#timer-message`
 
@@ -178,7 +178,7 @@ DOM targets: `#theme-toggle`, `#name-input`, `#name-save`
 
 ### Storage
 
-Thin wrapper — no business logic.
+Thin wrapper: no business logic.
 
 ```js
 Storage = {
@@ -380,7 +380,7 @@ Dark mode overrides applied via `body.dark` selector.
 
 ## Correctness Properties
 
-*A property is a characteristic or behavior that should hold true across all valid executions of a system — essentially, a formal statement about what the system should do. Properties serve as the bridge between human-readable specifications and machine-verifiable correctness guarantees.*
+*A property is a characteristic or behavior that should hold true across all valid executions of a system: essentially, a formal statement about what the system should do. Properties serve as the bridge between human-readable specifications and machine-verifiable correctness guarantees.*
 
 ---
 
@@ -432,7 +432,7 @@ No hour should produce an undefined or out-of-range result.
 
 ### Property 6: Start is idempotent while running
 
-*For any* running timer, calling `start()` again must not create a second interval — `intervalId` must remain the same reference and `remaining` must be unchanged.
+*For any* running timer, calling `start()` again must not create a second interval: `intervalId` must remain the same reference and `remaining` must be unchanged.
 
 **Validates: Requirements 2.7**
 
@@ -570,7 +570,7 @@ Tag format for each test:
 | Property 3 | `_formatTime` always returns MM:SS | `fc.integer({min:0, max:1500})` |
 | Property 4 | Each tick decrements by 1 | `fc.integer({min:1, max:1500})` |
 | Property 5 | Reset always yields 1500 | `fc.integer({min:0, max:1500})` |
-| Property 6 | Start idempotent while running | (stateful — call start() twice, check intervalId) |
+| Property 6 | Start idempotent while running | (stateful: call start() twice, check intervalId) |
 | Property 7 | Valid add produces done=false task | `fc.string({minLength:1}).filter(s => s.trim().length > 0)` |
 | Property 8 | Whitespace labels rejected | `fc.stringOf(fc.constantFrom(' ','\t','\n'))` |
 | Property 9 | Toggle twice = identity | `fc.boolean()` (initial done state) |
